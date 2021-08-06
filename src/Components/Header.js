@@ -4,14 +4,16 @@ import { useState } from "react";
 
 const Header = ({ onDisplay }) => {
     const [buttonText, setButtonText] = useState('Add')
-    const onClick = (e) => {
+    const [backgroundColor, setBackgroundColor] = useState('green')
+    const onClick = () => {
         setButtonText(buttonText === 'Add' ? 'Hide' : 'Add')
+        setBackgroundColor(backgroundColor === 'green' ? 'red' : 'green')
         onDisplay()
     }
     return (
         <header className='header'>
             <h1>Task Tracker</h1>
-            <Button color='green' text={buttonText} onClick={onClick}/>
+            <Button color={backgroundColor} text={buttonText} onClick={onClick}/>
         </header>
     )
 }
